@@ -24,7 +24,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			BLANK, BLANK, BLANK, BLANK, BLANK, BLANK, BLANK, BLANK, BLANK };
 	private int wins = 0, losses = 0, draws = 0; // game count by user
 
-	// Initialize
+	/**
+	 * Initialize the layout
+	 */
 	public void init()
 	{
 		JPanel topPanel = new JPanel();
@@ -43,14 +45,21 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		setVisible(true);
 	}
 
-	// Change line thickness
+	/**
+	 * Change line thickness. Take in the value from the slider; set it equal to
+	 * lineThickness; repaint board
+	 */
 	public void stateChanged(ChangeEvent e)
 	{
 		lineThickness = slider.getValue();
 		board.repaint();
 	}
 
-	// Change color of O or X
+	/**
+	 * Change color of O or X. When user click on oButton or xButton, show a
+	 * color palette for user to pick from, then apply that color to the
+	 * respective button
+	 */
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == oButton)
@@ -67,7 +76,10 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		board.repaint();
 	}
 
-	// Board is what actually plays and displays the game
+	/**
+	 * Board is what actually plays and displays the game. Extend from JPanel
+	 * and implement MouseListener interface
+	 */
 	private class Board extends JPanel implements MouseListener
 	{
 		private static final long serialVersionUID = 1L;
@@ -89,7 +101,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			addMouseListener(this);
 		}
 
-		// Redraw the board
+		/**
+		 * Redraw the board
+		 */
 		public void paintComponent(Graphics g)
 		{
 			super.paintComponent(g);
@@ -127,7 +141,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			}
 		}
 
-		// Draw an O where the mouse is clicked
+		/**
+		 * Draw an O where the mouse is clicked
+		 */
 		public void mouseClicked(MouseEvent e)
 		{
 			int xpos = e.getX() * 3 / getWidth();
@@ -142,7 +158,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			}
 		}
 
-		// Ignore other mouse events
+		/**
+		 * Ignore other mouse events
+		 */
 		public void mousePressed(MouseEvent e)
 		{
 		}
@@ -159,7 +177,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		{
 		}
 
-		// Computer plays X
+		/**
+		 * Computer plays X
+		 */
 		void putX()
 		{
 			// Check if game is over
@@ -179,7 +199,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			}
 		}
 
-		// Return true if player has won
+		/**
+		 * Return true if player has won
+		 */
 		boolean won(char player)
 		{
 			for (int i = 0; i < 8; i++)
@@ -188,13 +210,18 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			return false;
 		}
 
-		// Has player won in the row from position[a] to position[b]?
+		/**
+		 * Return true if player has won in the row from position[a] to
+		 * position[b]
+		 */
 		boolean testRow(char player, int a, int b)
 		{
 			return position[a] == player && position[b] == player && position[(a + b) / 2] == player;
 		}
 
-		// Play X in the best spot
+		/**
+		 * Play X in the best spot
+		 */
 		void nextMove()
 		{
 			int r = findRow(X); // complete a row of X and win if possible
@@ -209,8 +236,10 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			position[r] = X;
 		}
 
-		// Return 0-8 for the position of a blank spot in a row if the
-		// other 2 spots are occupied by player, or -1 if no spot exists
+		/**
+		 * Return 0-8 for the position of a blank spot in a row if the other 2
+		 * spots are occupied by player, or -1 if no spot exists
+		 */
 		int findRow(char player)
 		{
 			for (int i = 0; i < 8; i++)
@@ -222,9 +251,11 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			return -1;
 		}
 
-		// If 2 of 3 spots in the row from position[a] to position[b]
-		// are occupied by player and the third is blank, then return the
-		// index of the blank spot, else return -1.
+		/**
+		 * If 2 of 3 spots in the row from position[a] to position[b] are
+		 * occupied by player and the third is blank, then return the index of
+		 * the blank spot, else return -1.
+		 */
 		int find1Row(char player, int a, int b)
 		{
 			int c = (a + b) / 2; // middle spot
@@ -237,7 +268,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			return -1;
 		}
 
-		// Are all 9 spots filled?
+		/**
+		 * Return true if all 9 spots are filled
+		 */
 		boolean isDraw()
 		{
 			for (int i = 0; i < 9; i++)
@@ -246,7 +279,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			return true;
 		}
 
-		// Start a new game
+		/**
+		 * Start a new game
+		 */
 		void newGame(char winner)
 		{
 			repaint();
@@ -282,5 +317,5 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 			if ((wins + losses + draws) % 2 == 1)
 				nextMove();
 		}
-	} // end inner class Board
-} // end class TicTacToe
+	}
+}
