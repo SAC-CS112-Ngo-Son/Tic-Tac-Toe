@@ -200,7 +200,9 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		}
 
 		/**
-		 * Return true if player has won
+		 * @param player:
+		 *            X or O
+		 * @return true if player has won
 		 */
 		boolean won(char player)
 		{
@@ -211,8 +213,14 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		}
 
 		/**
-		 * Return true if player has won in the row from position[a] to
-		 * position[b]
+		 * @param player:
+		 *            X or O
+		 * @param a:
+		 *            first position[a]
+		 * @param b:
+		 *            second position[b]
+		 * @return true if player has won in the row from position[a] to
+		 *         position[b]
 		 */
 		boolean testRow(char player, int a, int b)
 		{
@@ -237,8 +245,10 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		}
 
 		/**
-		 * Return 0-8 for the position of a blank spot in a row if the other 2
-		 * spots are occupied by player, or -1 if no spot exists
+		 * @param player:
+		 *            X or O
+		 * @return 0-8 for the position of a blank spot in a row if the other 2
+		 *         spots are occupied by player, or -1 if no spot exists
 		 */
 		int findRow(char player)
 		{
@@ -252,9 +262,15 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		}
 
 		/**
-		 * If 2 of 3 spots in the row from position[a] to position[b] are
-		 * occupied by player and the third is blank, then return the index of
-		 * the blank spot, else return -1.
+		 * @param player:
+		 *            X or O
+		 * @param a:
+		 *            first position[a]
+		 * @param b:
+		 *            second position[b]
+		 * @return the index of the blank spot if 2 of 3 spots in the row from
+		 *         position[a] to position[b] are occupied by player and the
+		 *         third is blank, else return -1
 		 */
 		int find1Row(char player, int a, int b)
 		{
@@ -269,7 +285,7 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		}
 
 		/**
-		 * Return true if all 9 spots are filled
+		 * @return true if all 9 spots are filled
 		 */
 		boolean isDraw()
 		{
@@ -281,6 +297,7 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 
 		/**
 		 * Start a new game
+		 * @param winner: X or O
 		 */
 		void newGame(char winner)
 		{
