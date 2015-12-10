@@ -12,16 +12,16 @@ import java.util.Random;
 public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListener
 {
 	private static final long serialVersionUID = 1L;
-	private JSlider slider;
-	private JButton oButton, xButton;
-	private Board board;
-	private int lineThickness = 4;
-	private Color oColor = Color.BLUE, xColor = Color.RED;
+	JSlider slider;
+	JButton oButton, xButton;
+	Board board;
+	int lineThickness = 4;
+	Color oColor = Color.BLUE, xColor = Color.RED;
 	static final char BLANK = ' ', O = 'O', X = 'X';
-	private char position[] =
+	char position[] =
 	{ // Board position (BLANK, O, or X)
 			BLANK, BLANK, BLANK, BLANK, BLANK, BLANK, BLANK, BLANK, BLANK };
-	private int wins = 0, losses = 0, draws = 0; // game count by user
+	int wins = 0, losses = 0, draws = 0; // game count by user
 
 	/**
 	 * Initialize the layout
@@ -82,8 +82,8 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 	private class Board extends JPanel implements MouseListener
 	{
 		private static final long serialVersionUID = 1L;
-		private Random random = new Random();
-		private int rows[][] =
+		Random random = new Random();
+		int rows[][] =
 		{
 				{ 0, 2 },
 				{ 3, 5 },
