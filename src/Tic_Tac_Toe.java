@@ -8,7 +8,6 @@ import java.awt.geom.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.util.Random;
-import java.applet.*;
 
 public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListener
 {
