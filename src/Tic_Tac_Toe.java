@@ -103,6 +103,7 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		/**
 		 * Redraw the board
 		 */
+		@Override
 		public void paintComponent(Graphics g)
 		{
 			super.paintComponent(g);
