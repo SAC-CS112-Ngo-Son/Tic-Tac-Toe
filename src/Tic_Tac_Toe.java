@@ -322,7 +322,7 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 					null, JOptionPane.YES_NO_OPTION);
 			if (choice != JOptionPane.YES_OPTION)
 			{
-				wins = losses = draws = 0;
+				System.exit(0);
 			}
 
 			// Clear the board to start a new game
