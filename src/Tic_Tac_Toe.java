@@ -144,6 +144,7 @@ public class Tic_Tac_Toe extends JApplet implements ChangeListener, ActionListen
 		/**
 		 * Draw an O where the mouse is clicked
 		 */
+		@Override
 		public void mouseClicked(MouseEvent e)
 		{
 			int xpos = e.getX() * 3 / getWidth();
